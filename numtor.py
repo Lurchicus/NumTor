@@ -2,12 +2,12 @@ from random import randint
 from colorama import Fore, Back
 
 
-def info(bdebug, itarget, iguess, ithreshold, iinrange):
-    """info(debug, target, guess, threshold, inrange)
+def info(dbFlag, targetVal, guessVal, thresholdVal, inrangeVal):
+    """info(dbFlag, targetVal, guessVal, thresholdVal, inrangeVal)
     If debug toggle is True, show debug info. """
-    if bdebug:
-        print("Target: " + str(itarget) + " guess: " + str(iguess) + " threshold: " +
-            str(ithreshold) + " inrange: " + str(iinrange))
+    if dbFlag:
+        print("Target: " + str(targetVal) + " guess: " + str(guessVal) + " threshold: " +
+            str(thresholdVal) + " inrange: " + str(inrangeVal))
 
 
 PROMPT = Fore.YELLOW + " Pick a bumber between 1 and 100: " + Fore.WHITE
@@ -56,8 +56,7 @@ while GUESS != 0:
                 DEBUG = False
             else:
                 DEBUG = True
-
-            # Get the next guess
+            # Decrement the try counter so the toggle doesn't count as a guess
             TRIES = TRIES - 1
             GUESS = int(input(PROMPT))
             continue
