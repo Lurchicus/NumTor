@@ -33,16 +33,16 @@ while guess != 0:
 
         # Show tries and best score (if there is one)
         if best < 1000:
-                print(Back.BLUE + Fore.BLACK + " Try: " + str(tries) + Back.GREEN + Fore.BLACK + " Your best score is: " + str(best) + Fore.WHITE + Back.RESET)
+                print(Back.BLUE + Fore.WHITE + " Try: " + str(tries) + Back.GREEN + Fore.WHITE + " Your best score is: " + str(best) + Fore.WHITE + Back.RESET)
         else:
-                print(Back.BLUE + Fore.BLACK + " Try: " + str(tries) + Fore.WHITE + Back.RESET)
+                print(Back.BLUE + Fore.WHITE + " Try: " + str(tries) + Fore.WHITE + Back.RESET)
 
         # See if we are exiting or not
         if guess != 0:
 
                 # Logic for a perfect guess
                 if guess == target:
-                        print(Back.GREEN + Fore.BLACK + " You got it in "+str(tries)+"!" + Fore.WHITE + Back.RESET)
+                        print(Back.GREEN + Fore.WHITE + " You got it in "+str(tries)+"!" + Fore.WHITE + Back.RESET)
                         target = randint(1, 100)
                         threshold = randint(2,5)
                         guess = -1
@@ -54,15 +54,15 @@ while guess != 0:
                 else:
                         # Logic for too low
                         if guess < target:
-                                print(Back.RED + Fore.BLACK + " That's too low!" + Fore.WHITE + Back.RESET)
+                                print(Back.RED + Fore.WHITE + " That's too low!" + Fore.WHITE + Back.RESET)
                         
                         # Logic for too high
                         if guess > target:
-                                print(Back.RED + Fore.BLACK + " That's too high!" + Fore.WHITE + Back.RESET)
+                                print(Back.RED + Fore.WHITE + " That's too high!" + Fore.WHITE + Back.RESET)
 
                         # Logic for a "too close" guess
                         if inrange <= threshold:
-                                print(Back.RED + Fore.BLACK + " And "+str(guess)+ " is too close to "+str(target)+", so I changed the number!" + Fore.WHITE + Back.RESET)
+                                print(Back.RED + Fore.WHITE + " And "+str(guess)+ " is too close to "+str(target)+", so I changed the number!" + Fore.WHITE + Back.RESET)
                                 target = randint(1, 100)
                                 threshold = randint(2,5)
                                 #debug = "Target: " + str(target) + " guess: " + str(guess) + " threshold: " + str(threshold) + " inrange: " + str(inrange)
@@ -72,7 +72,4 @@ while guess != 0:
         guess = int(input(prompt))
 
 # Later 
-print(Back.GREEN + Fore.BLACK," Goodbye!",Fore.WHITE + Back.RESET)
-
-        
-                          
+print(Back.GREEN + Fore.WHITE," Goodbye!",Fore.WHITE + Back.RESET)                  
