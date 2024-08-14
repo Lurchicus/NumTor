@@ -2,12 +2,12 @@ from random import randint
 from colorama import Fore, Back
 
 
-def info(dbFlag, targetVal, guessVal, thresholdVal, inrangeVal):
-    """info(dbFlag, targetVal, guessVal, thresholdVal, inrangeVal)
+def info(db_flag, target_val, guess_val, threshold_val, inrange_val):
+    """info(b_flag, target_val, guess_val, threshold_val, inrange_val)
     If debug toggle is True, show debug info. """
-    if dbFlag:
-        print("Target: " + str(targetVal) + " guess: " + str(guessVal) + " threshold: " +
-            str(thresholdVal) + " inrange: " + str(inrangeVal))
+    if db_flag:
+        print("Target: " + str(target_val) + " guess: " + str(guess_val) + " threshold: " +
+            str(threshold_val) + " inrange: " + str(inrange_val))
 
 
 PROMPT = Fore.YELLOW + " Pick a bumber between 1 and 100: " + Fore.WHITE
