@@ -1,13 +1,17 @@
+"""
+Number Torture for Python (pick a number between 1 and 100, with a twist).
+"""
+
 from random import randint
 from colorama import Fore, Back
 
 
 def info(db_flag, target_val, guess_val, threshold_val, inrange_val):
     """info(b_flag, target_val, guess_val, threshold_val, inrange_val)
-    If debug toggle is True, show debug info. """
+    If dbg_flag argument is True, we show debug info. """
     if db_flag:
-        print("Target: " + str(target_val) + " guess: " + str(guess_val) + " threshold: " +
-            str(threshold_val) + " inrange: " + str(inrange_val))
+        print(f"Target: {target_val} guess: {guess_val} "+
+            f"threshold: {threshold_val} inrange: {inrange_val}")
 
 
 PROMPT = Fore.YELLOW + " Pick a bumber between 1 and 100: " + Fore.WHITE
@@ -25,6 +29,7 @@ INRANGE = 101                   # how close the guess is to the target
 GUESS = -1                      # current guess
 THRESHOLD = randint(2,5)        # how close the guess has to be to the target to change it
 TARGET = randint(1, 100)        # the target number
+
 info(DEBUG, TARGET, GUESS, THRESHOLD, INRANGE)
 GUESS = int(input(PROMPT))
 while GUESS != 0:
@@ -57,6 +62,7 @@ while GUESS != 0:
             else:
                 DEBUG = True
             # Decrement the try counter so the toggle doesn't count as a guess
+            # and get a new guess
             TRIES = TRIES - 1
             GUESS = int(input(PROMPT))
             continue
