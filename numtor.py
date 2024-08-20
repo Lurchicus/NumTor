@@ -6,15 +6,31 @@ from random import randint
 from colorama import Fore, Back
 
 
-def info(db_flag, target_val, guess_val, threshold_val, inrange_val):
-    """info(b_flag, target_val, guess_val, threshold_val, inrange_val)
-    If dbg_flag argument is True, we show debug info. """
-    if db_flag:
+def prompt():
+    """ Display prompt, error check input and re-prompt on error, return 
+    numeric value if it is okay
+    """
+    i_got = -2
+    its_good = False
+    while not its_good:
+        inp = input(Fore.YELLOW + " Pick a number between 1 and 100: " + Fore.WHITE)
+        try:
+            i_got = int(inp)
+            its_good = True
+        except:
+            print(Back.RED + Fore.WHITE + " Invalid input (not int)!" + Fore.WHITE + Back.RESET)
+    return i_got
+
+
+def info(b_flag, target_val, guess_val, threshold_val, in_range_val):
+    """ info(b_Flag, targetVal, guessVal, thresholdVal, in_range_val)
+    If b_flag argument is True, we show debug info. """
+    if b_flag:
         print(f"Target: {target_val} guess: {guess_val} "+
-            f"threshold: {threshold_val} inrange: {inrange_val}")
+            f"threshold: {threshold_val} in_range: {in_range_val}")
 
 
-PROMPT = Fore.YELLOW + " Pick a bumber between 1 and 100: " + Fore.WHITE
+#PROMPT = Fore.YELLOW + " Pick a number between 1 and 100: " + Fore.WHITE
 print(Fore.GREEN,"Number Torture by Dan Rhea and Lee Weiss 1992-2024",Fore.WHITE)
 print(Fore.GREEN,"So what's the torture? Well, along with my picking",Fore.WHITE)
 print(Fore.GREEN,"a number between 1 and 100, I'll also pick a value",Fore.WHITE)
@@ -25,24 +41,24 @@ print(Fore.GREEN,"Have fun! (enter 0 to exit)",Fore.WHITE)
 DEBUG = False                   # debug flag
 BEST = 1000                     # best score so far
 TRIES = 0                       # current number of tries
-INRANGE = 101                   # how close the guess is to the target
+IN_RANGE = 101                   # how close the guess is to the target
 GUESS = -1                      # current guess
 THRESHOLD = randint(2,5)        # how close the guess has to be to the target to change it
 TARGET = randint(1, 100)        # the target number
 
-info(DEBUG, TARGET, GUESS, THRESHOLD, INRANGE)
-GUESS = int(input(PROMPT))
+info(DEBUG, TARGET, GUESS, THRESHOLD, IN_RANGE)
+GUESS = prompt()
 while GUESS != 0:
 
     TRIES = TRIES + 1
 
     # Get the value of how close the guess is to the target
     if GUESS < TARGET:
-        INRANGE = abs(TARGET-GUESS)
+        IN_RANGE = abs(TARGET-GUESS)
     else:
-        INRANGE = abs(GUESS-TARGET)
+        IN_RANGE = abs(GUESS-TARGET)
 
-    info(DEBUG, TARGET, GUESS, THRESHOLD, INRANGE)
+    info(DEBUG, TARGET, GUESS, THRESHOLD, IN_RANGE)
 
     # Show tries and best score (if there is one)
     if GUESS != -1:
@@ -64,7 +80,8 @@ while GUESS != 0:
             # Decrement the try counter so the toggle doesn't count as a guess
             # and get a new guess
             TRIES = TRIES - 1
-            GUESS = int(input(PROMPT))
+            info(DEBUG, TARGET, GUESS, THRESHOLD, IN_RANGE)
+            GUESS = prompt()
             continue
 
         # Logic for a perfect guess
@@ -74,7 +91,7 @@ while GUESS != 0:
             TARGET = randint(1, 100)
             THRESHOLD = randint(2,5)
             GUESS = -2
-            info(DEBUG, TARGET, GUESS, THRESHOLD, INRANGE)
+            info(DEBUG, TARGET, GUESS, THRESHOLD, IN_RANGE)
 
             # Adjust best score if needed
             if TRIES < BEST:
@@ -91,15 +108,15 @@ while GUESS != 0:
                 print(Back.RED + Fore.WHITE + " That's too high!" + Fore.WHITE + Back.RESET)
 
             # Logic for a "too close" guess
-            if INRANGE <= THRESHOLD:
+            if IN_RANGE <= THRESHOLD:
                 print(Back.RED + Fore.WHITE + " And "+str(GUESS)+ " is too close to "+str(TARGET)+
                     ", so I changed the number!" + Fore.WHITE + Back.RESET)
                 TARGET = randint(1, 100)
                 THRESHOLD = randint(2,5)
-                info(DEBUG, TARGET, GUESS, THRESHOLD, INRANGE)
+                info(DEBUG, TARGET, GUESS, THRESHOLD, IN_RANGE)
 
         # Get the next guess
-        GUESS = int(input(PROMPT))
+        GUESS = prompt()
 
 # Later
 print(Back.GREEN + Fore.WHITE," Goodbye!",Fore.WHITE + Back.RESET)
