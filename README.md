@@ -19,3 +19,4 @@ Number Torture for Python (pick a number between 1 and 100, with a twist).
 - Dan Rhea - Wed Aug 14 10:24:03 2024 -0400 - Added change history to README.md
 - Dan Rhea - Thu Aug 15 02:09:14 2024 -0400 - Added f"" formatting to the info() procedure, and improved docstring. Also added a docstring to the program (pylint seemed to like it)
 - Dan Rhea -  - Changed input to a function that error checks the input first. Fixed a few things pylint didn't like.
+- Dan Rhea - Tue Dec 24 16:51:30 2024 -0400 - Updated the copyright for the first year NumTor (Number Torture for 8-bit Atari BASIC).

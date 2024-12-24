@@ -31,7 +31,7 @@ def info(b_flag, target_val, guess_val, threshold_val, in_range_val):
 
 
 #PROMPT = Fore.YELLOW + " Pick a number between 1 and 100: " + Fore.WHITE
-print(Fore.GREEN,"Number Torture by Dan Rhea and Lee Weiss 1992-2024",Fore.WHITE)
+print(Fore.GREEN,"Number Torture by Dan Rhea and Lee Weiss 1991-2024",Fore.WHITE)
 print(Fore.GREEN,"So what's the torture? Well, along with my picking",Fore.WHITE)
 print(Fore.GREEN,"a number between 1 and 100, I'll also pick a value",Fore.WHITE)
 print(Fore.GREEN,"between 2 and 5. If you get near the number without",Fore.WHITE)
