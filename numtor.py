@@ -2,7 +2,7 @@
 Number Torture for Python (pick a number between 1 and 100, with a twist).
 """
 
-from random import randint
+import random
 from colorama import Fore, Back
 
 
@@ -49,8 +49,8 @@ def main() -> None:
     tries: int = 0                  # current number of tries
     in_range: int = 101             # how close the guess is to the target
     guess: int = -1                 # current guess
-    threshold: int = randint(2,5)   # how close the guess has to be to the target to change it
-    target: int = randint(1, 100)   # the target number
+    threshold: int = random.randint(2,5)   # how close the guess has to be to the target to change it
+    target: int = random.randint(1, 100)   # the target number
 
     info(debug, target, guess, threshold, in_range)
     guess = prompt()
@@ -94,8 +94,8 @@ def main() -> None:
             if guess == target:
                 print(f"{Back.GREEN}{Fore.WHITE} You got it in {str(tries)}!"
                     f"{Fore.WHITE}{Back.RESET}")
-                target = randint(1, 100)
-                threshold = randint(2,5)
+                target = random.randint(1, 100)
+                threshold = random.randint(2,5)
                 guess = -2
                 info(debug, target, guess, threshold, in_range)
 
@@ -117,8 +117,8 @@ def main() -> None:
                 if in_range <= threshold:
                     print(f"{Back.RED}{Fore.WHITE} And {str(guess)} is too close to {str(target)}"
                         f", so I changed the number!{Fore.WHITE}{Back.RESET}")
-                    target = randint(1, 100)
-                    threshold = randint(2,5)
+                    target = random.randint(1, 100)
+                    threshold = random.randint(2,5)
                     info(debug, target, guess, threshold, in_range)
 
             # Get the next guess
