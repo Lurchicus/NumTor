@@ -22,3 +22,4 @@ Number Torture for Python (pick a number between 1 and 100, with a twist).
 - Dan Rhea - Tue Dec 24 16:51:30 2024 -0400 - Updated the copyright for the first year NumTor (Number Torture for 8-bit Atari BASIC).
 - Dan Rhea - Thu Apr 03 02:09:11 2025 -0400 - Implemented f"{foo}" strings. Changed variable names to lower case (though pylint still thinks some of my variables are constants). Added type hints.
 - Dan Rhea - Mon Apr 08 00:27:14 2025 -0400 - Added return types to functions, move the main part of the program into 'main()' and added code to call it.
+- Dan Rhea - Fri Apr 18 14:34:10 2025 -0400 - Added uv project to numtor.
