@@ -49,7 +49,7 @@ def main() -> None:
     tries: int = 0                  # current number of tries
     in_range: int = 101             # how close the guess is to the target
     guess: int = -1                 # current guess
-    threshold: int = random.randint(2,5)   # how close the guess has to be to the target to change it
+    threshold: int = random.randint(2,5)   # how close the guess has to change the number
     target: int = random.randint(1, 100)   # the target number
 
     info(debug, target, guess, threshold, in_range)
@@ -107,15 +107,15 @@ def main() -> None:
             else:
                 # Logic for too low
                 if guess < target:
-                    print(f"{Back.RED}{Fore.WHITE} That's too low!{Fore.WHITE}{Back.RESET}")
+                    print(f"{Back.YELLOW}{Fore.WHITE} That's too low!{Fore.WHITE}{Back.RESET}")
 
                 # Logic for too high
                 if guess > target:
-                    print(f"{Back.RED}{Fore.WHITE} That's too high!{Fore.WHITE}{Back.RESET}")
+                    print(f"{Back.YELLOW}{Fore.WHITE} That's too high!{Fore.WHITE}{Back.RESET}")
 
                 # Logic for a "too close" guess
                 if in_range <= threshold:
-                    print(f"{Back.RED}{Fore.WHITE} And {str(guess)} is too close to {str(target)}"
+                    print(f"{Back.YELLOW}{Fore.WHITE} And {str(guess)} is too close to {str(target)}"
                         f", so I changed the number!{Fore.WHITE}{Back.RESET}")
                     target = random.randint(1, 100)
                     threshold = random.randint(2,5)
